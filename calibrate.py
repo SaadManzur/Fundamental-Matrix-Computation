@@ -18,7 +18,7 @@ import glob
 import matplotlib.pyplot as plt
 
 # file names... modify these!
-calibimgfiles = '*.jpg'
+calibimgfiles = './sfm/*.JPG'
 resultfile = 'calibration.pickle'
 
 # prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
@@ -51,8 +51,9 @@ for idx, fname in enumerate(images):
         cv2.imshow('img', img)
         cv2.waitKey(500)
 
-cv2.destroyAllWindows()
+print(img_size)
 
+cv2.destroyAllWindows()
 
 # now perform the calibration
 ret, K, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_size,None,None)
